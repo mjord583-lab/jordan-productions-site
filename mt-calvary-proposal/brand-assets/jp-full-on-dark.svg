@@ -1,0 +1,11 @@
+<svg viewBox="0 0 360 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Monogram -->
+  <g transform="translate(0, 4) scale(0.72)">
+    <path d="M28 16 L46 16 L46 64 Q46 80 32 80 L24 80 L24 70 L30 70 Q36 70 36 64 L36 26 L28 26 Z" fill="#E8E8EC"/>
+    <path d="M36 16 L62 16 Q76 16 76 32 Q76 48 62 48 L46 48 L46 16" fill="#00C2D1"/>
+    <rect x="36" y="16" width="10" height="32" fill="#00C2D1"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="70" y="36" font-family="'Cabinet Grotesk', 'Inter', sans-serif" font-weight="700" font-size="22" letter-spacing="1.8" fill="#E8E8EC" text-transform="uppercase">JORDAN</text>
+  <text x="70" y="60" font-family="'Cabinet Grotesk', 'Inter', sans-serif" font-weight="500" font-size="18.7" letter-spacing="2.2" fill="#00C2D1" text-transform="uppercase">PRODUCTIONS</text>
+</svg>

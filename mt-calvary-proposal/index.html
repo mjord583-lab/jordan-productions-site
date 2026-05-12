@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mt Calvary Baptist Church Media System Proposal | Jordan Productions</title>
+  <meta name="description" content="Jordan Productions media system proposal and secure payment page for Mt Calvary Baptist Church.">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --surface-2: #18181f;
+      --border: #333345;
+      --text: #e8e8ec;
+      --muted: #9494a8;
+      --faint: #68687a;
+      --cyan: #00c2d1;
+      --cyan-hover: #00a8b5;
+      --amber: #e8a020;
+      --paper: #f5f5f7;
+      --ink: #1a1a24;
+      --paper-muted: #6a6a7a;
+      --paper-border: #d8d8dc;
+      --font-display: "Cabinet Grotesk", "Inter", system-ui, sans-serif;
+      --font-body: "Satoshi", "Inter", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-body);
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(0, 194, 209, 0.14), transparent 32rem),
+        linear-gradient(180deg, #0a0a0f 0%, #101018 46%, #f5f5f7 46%, #f5f5f7 100%);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; }
+
+    .topbar {
+      border-bottom: 4px solid var(--cyan);
+      background: rgba(10, 10, 15, 0.88);
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      min-height: 188px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 30px 0;
+    }
+
+    .brand {
+      width: 248px;
+      min-width: 180px;
+    }
+
+    .eyebrow {
+      color: #b9b9c2;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    .eyebrow strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: clamp(24px, 4vw, 34px);
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    main {
+      padding: 38px 0 58px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) 390px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .panel {
+      background: #fff;
+      color: var(--ink);
+      border: 1px solid var(--paper-border);
+      border-radius: 18px;
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+    }
+
+    .hero-panel {
+      padding: 34px;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .intro {
+      margin: 18px 0 0;
+      max-width: 700px;
+      color: var(--paper-muted);
+      font-size: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .card {
+      min-height: 118px;
+      padding: 20px;
+      border: 1px solid var(--paper-border);
+      border-radius: 14px;
+      background: #f7f7fa;
+    }
+
+    .card.dark {
+      background: var(--bg);
+      color: #fff;
+      border-color: var(--bg);
+    }
+
+    .label {
+      color: var(--paper-muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .card.dark .label { color: #a9a9b2; }
+
+    .amount {
+      margin-top: 12px;
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1;
+      font-weight: 500;
+    }
+
+    .section {
+      padding: 28px 34px;
+      border-top: 1px solid var(--paper-border);
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-family: var(--font-display);
+      font-size: 28px;
+      line-height: 1.1;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+
+    th {
+      padding: 11px 0;
+      color: var(--paper-muted);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: left;
+      border-bottom: 1px solid var(--paper-border);
+    }
+
+    td {
+      padding: 13px 0;
+      border-bottom: 1px solid #e9e9ee;
+      vertical-align: top;
+    }
+
+    .right { text-align: right; white-space: nowrap; }
+
+    .total-row td {
+      border-bottom: 0;
+      border-top: 2px solid var(--ink);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 15px 16px;
+      border-left: 3px solid var(--cyan);
+      background: #f7f7fa;
+      color: var(--paper-muted);
+      font-size: 14px;
+    }
+
+    .payment {
+      position: sticky;
+      top: 24px;
+      padding: 28px;
+    }
+
+    .payment .amount {
+      font-size: 56px;
+    }
+
+    .payment p {
+      color: var(--paper-muted);
+      margin: 14px 0 0;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 54px;
+      margin-top: 24px;
+      border-radius: 999px;
+      background: var(--cyan);
+      color: var(--bg);
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+
+    .button:hover {
+      background: var(--cyan-hover);
+      transform: translateY(-1px);
+    }
+
+    .secondary {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--paper-border);
+      margin-top: 12px;
+    }
+
+    .secondary:hover {
+      background: #f0f0f4;
+    }
+
+    .disabled {
+      pointer-events: none;
+      opacity: 0.58;
+    }
+
+    .fine-print {
+      margin-top: 18px;
+      color: var(--paper-muted);
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 28px 0 44px;
+      color: #777784;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      body {
+        background: linear-gradient(180deg, #0a0a0f 0%, #101018 30%, #f5f5f7 30%, #f5f5f7 100%);
+      }
+
+      header,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        display: grid;
+      }
+
+      .eyebrow {
+        text-align: left;
+      }
+
+      .payment {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 24px, 1120px); }
+      .cards { grid-template-columns: 1fr; }
+      .hero-panel, .section, .payment { padding: 22px; }
+      table { font-size: 14px; }
+      .right { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <header>
+        <img class="brand" src="./brand-assets/jp-full-on-dark.svg" alt="Jordan Productions">
+        <div class="eyebrow">
+          <strong>Media System Proposal</strong>
+          Mt Calvary Baptist Church · May 2026
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <div class="grid">
+      <article class="panel">
+        <section class="hero-panel">
+          <h1>Church Media System Installation</h1>
+          <p class="intro">Jordan Productions will provide a complete low-voltage media system installation, including audio, displays, livestream video equipment, system configuration, testing, and operator handoff.</p>
+
+          <div class="cards" aria-label="Project summary">
+            <div class="card">
+              <div class="label">Equipment & Materials</div>
+              <div class="amount">$8,295</div>
+            </div>
+            <div class="card">
+              <div class="label">Installation</div>
+              <div class="amount">$7,850</div>
+            </div>
+            <div class="card dark">
+              <div class="label">Project Total</div>
+              <div class="amount">$16,145</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Project Scope</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th class="right">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Audio system equipment package</td>
+                <td class="right">$4,195.00</td>
+              </tr>
+              <tr>
+                <td>Display system package</td>
+                <td class="right">$1,225.00</td>
+              </tr>
+              <tr>
+                <td>Livestream video package</td>
+                <td class="right">$2,875.00</td>
+              </tr>
+              <tr>
+                <td>Installation, system configuration, testing, and operator handoff</td>
+                <td class="right">$7,850.00</td>
+              </tr>
+              <tr class="total-row">
+                <td>Total</td>
+                <td class="right">$16,145.00</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="note">
+            Equipment pricing reflects the lowest practical options selected to fit the project budget. Higher-tier equipment options are available upon request.
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Project Notes</h2>
+          <table>
+            <tbody>
+              <tr>
+                <td>Licensed electrical work is not included. If new power locations are needed, the church will need an electrician. Cost will be based on quotes provided by licensed electricians.</td>
+              </tr>
+              <tr>
+                <td>Equipment models may be substituted with equal or better alternatives based on availability and final site conditions. If a substitution increases cost, the client will be notified and billed accordingly.</td>
+              </tr>
+              <tr>
+                <td>Estimated installation window is 5 to 7 working days after equipment is received and site access is confirmed.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </article>
+
+      <aside class="panel payment" aria-label="Payment">
+        <div class="label">Secure Payment</div>
+        <div class="amount">$16,145.00</div>
+        <p>Use the secure payment link below to approve and pay for the Mt Calvary Baptist Church media system project.</p>
+
+        <a id="payButton" class="button" href="https://buy.stripe.com/7sYfZg1ZJ7Sa7DZgSW4Ni00">Pay Securely</a>
+        <a class="button secondary" href="./jordan_productions_church_media_quote.pdf">View PDF Quote</a>
+
+        <div class="fine-print">
+          Payment is processed securely through Stripe. Electrical work, permits, lift rental, unusual structural work, and payment processing fees are not included unless separately approved.
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="wrap">
+    Jordan Productions · Confidential · mj@jordanproductions.org
+  </footer>
+
+</body>
+</html>
