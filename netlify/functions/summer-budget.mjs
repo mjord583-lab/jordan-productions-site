@@ -59,7 +59,9 @@ function passwordFromPayload(req, payload) {
 }
 
 function configuredPassword() {
-  return globalThis.Netlify?.env?.get?.("SUMMER_BUDGET_PASSWORD") || "";
+  return globalThis.Netlify?.env?.get?.("SUMMER_BUDGET_PASSWORD")
+    || process.env.SUMMER_BUDGET_PASSWORD
+    || "";
 }
 
 function normalizeBudget(data) {
