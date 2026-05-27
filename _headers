@@ -1,11 +1,14 @@
 /summer-budget-2026
   X-Robots-Tag: noindex, nofollow, noarchive
   Cache-Control: no-store
+  X-Frame-Options: DENY
 
 /summer-budget-2026/
   X-Robots-Tag: noindex, nofollow, noarchive
   Cache-Control: no-store
+  X-Frame-Options: DENY
 
 /summer-budget-2026/*
   X-Robots-Tag: noindex, nofollow, noarchive
   Cache-Control: no-store
+  X-Frame-Options: DENY
