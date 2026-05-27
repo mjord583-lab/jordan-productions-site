@@ -1,0 +1,16 @@
+{
+  "name": "jordan-productions-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "netlify dev",
+    "check": "node --check netlify/functions/summer-budget.mjs && node --check summer-budget-2026/app.js"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^10.7.8"
+  },
+  "devDependencies": {
+    "netlify-cli": "^26.0.2"
+  }
+}
