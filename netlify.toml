@@ -1,2 +1,3 @@
+# Hidden summer budget dashboard API.
 [functions]
   directory = "netlify/functions"
