@@ -58,8 +58,9 @@ function passwordFromPayload(req, payload) {
   return payload?.password || req.headers.get("x-summer-budget-password") || "";
 }
 
-function configuredPassword() {
-  return globalThis.Netlify?.env?.get?.("SUMMER_BUDGET_PASSWORD")
+function configuredPassword(context) {
+  return context?.env?.get?.("SUMMER_BUDGET_PASSWORD")
+    || globalThis.Netlify?.env?.get?.("SUMMER_BUDGET_PASSWORD")
     || process.env.SUMMER_BUDGET_PASSWORD
     || "";
 }
@@ -75,7 +76,7 @@ function normalizeBudget(data) {
   };
 }
 
-export default async (req) => {
+export default async (req, context) => {
   if (req.method !== "POST") {
     return jsonResponse({ error: "Use POST." }, 405);
   }
@@ -87,7 +88,7 @@ export default async (req) => {
     return jsonResponse({ error: "Invalid JSON." }, 400);
   }
 
-  const expectedPassword = configuredPassword();
+  const expectedPassword = configuredPassword(context);
   if (!expectedPassword) {
     return jsonResponse({ error: "Budget password is not configured." }, 500);
   }
