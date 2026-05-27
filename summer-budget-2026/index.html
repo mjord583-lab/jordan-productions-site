@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="googlebot" content="noindex, nofollow, noarchive">
+  <title>Summer Budget 2026</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+  <main class="app-shell">
+    <section class="lock-screen" id="lockScreen">
+      <div class="lock-card">
+        <div class="lock-mark" aria-hidden="true">
+          <i data-lucide="sun-medium"></i>
+        </div>
+        <p class="eyebrow">Private Family Page</p>
+        <h1>Summer Budget Control Center</h1>
+        <p class="lock-copy">Enter the family password to open the budget dashboard.</p>
+        <form id="passwordForm" class="password-form">
+          <label>
+            <span>Password</span>
+            <input id="passwordInput" type="password" inputmode="numeric" autocomplete="current-password" required>
+          </label>
+          <button class="solid-button" type="submit">
+            <i data-lucide="lock-keyhole-open"></i>
+            <span>Open Dashboard</span>
+          </button>
+        </form>
+        <p class="form-message" id="lockMessage" role="status"></p>
+      </div>
+    </section>
+
+    <section class="dashboard" id="dashboard" hidden>
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">
+            <i data-lucide="layout-dashboard"></i>
+          </div>
+          <div>
+            <h1>Summer Budget</h1>
+            <p id="updatedText">Private family control center</p>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button class="icon-button" id="saveButton" type="button" title="Save changes">
+            <i data-lucide="save"></i>
+            <span>Save</span>
+          </button>
+          <button class="icon-button" id="printButton" type="button" title="Print">
+            <i data-lucide="printer"></i>
+            <span>Print</span>
+          </button>
+          <button class="icon-button" id="lockButton" type="button" title="Lock dashboard">
+            <i data-lucide="lock"></i>
+            <span>Lock</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Control Center</p>
+          <h2>Plans on top, details below.</h2>
+          <p>Track trips, camps, family days, and buffers in one place. Update the numbers, save, and come back later.</p>
+        </div>
+        <div class="hero-panel">
+          <div class="meter" id="targetMeter">
+            <span id="meterValue">0%</span>
+          </div>
+          <div>
+            <span class="panel-label">Target Used</span>
+            <strong id="targetUsed">$0 of $0</strong>
+            <small id="targetDelta">$0 left</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="summary-strip" aria-label="Budget summary">
+        <article class="summary-card primary">
+          <i data-lucide="wallet-cards"></i>
+          <span>Planned</span>
+          <strong id="plannedTotal">$0</strong>
+          <small id="plannedSubtext">Included lines</small>
+        </article>
+        <article class="summary-card">
+          <i data-lucide="receipt-text"></i>
+          <span>Actual</span>
+          <strong id="actualTotal">$0</strong>
+          <small id="remainingText">$0 remaining</small>
+        </article>
+        <article class="summary-card">
+          <i data-lucide="umbrella"></i>
+          <span>Buffer</span>
+          <strong id="bufferTotal">$0</strong>
+          <small id="bufferLabel">0%</small>
+        </article>
+        <article class="summary-card">
+          <i data-lucide="list-checks"></i>
+          <span>Lines</span>
+          <strong id="lineCount">0</strong>
+          <small id="categoryCount">0 categories</small>
+        </article>
+      </section>
+
+      <section class="controls">
+        <label>
+          <span>Budget Target</span>
+          <input id="targetInput" type="number" min="0" step="50">
+        </label>
+        <label>
+          <span>Buffer <b id="bufferInputLabel">0%</b></span>
+          <input id="bufferInput" type="range" min="0" max="30" step="1">
+        </label>
+        <div class="save-state" id="saveState">
+          <i data-lucide="cloud-check"></i>
+          Saved
+        </div>
+      </section>
+
+      <section class="overview-grid">
+        <article class="panel wide">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Buckets</p>
+              <h3>Category Dashboard</h3>
+            </div>
+            <button class="ghost-button" id="addCategoryButton" type="button">
+              <i data-lucide="folder-plus"></i>
+              <span>Add Category</span>
+            </button>
+          </div>
+          <div class="category-grid" id="categoryGrid"></div>
+        </article>
+
+        <article class="panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Kanban</p>
+              <h3>Status Board</h3>
+            </div>
+          </div>
+          <div class="kanban" id="kanban"></div>
+        </article>
+      </section>
+
+      <section class="details">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Details</p>
+            <h3>Budget Lines</h3>
+          </div>
+          <div class="filters">
+            <label>
+              <span>Category</span>
+              <select id="categoryFilter"></select>
+            </label>
+            <label>
+              <span>Status</span>
+              <select id="statusFilter">
+                <option value="all">All statuses</option>
+                <option value="idea">Idea</option>
+                <option value="estimate">Estimate</option>
+                <option value="shortlist">Shortlist</option>
+                <option value="booked">Booked</option>
+                <option value="paid">Paid</option>
+              </select>
+            </label>
+            <label>
+              <span>Search</span>
+              <input id="searchInput" type="search" placeholder="Trip, camp, kid, note">
+            </label>
+          </div>
+        </div>
+
+        <form id="addItemForm" class="add-line">
+          <label>
+            <span>Item</span>
+            <input id="itemNameInput" type="text" placeholder="New budget line" required>
+          </label>
+          <label>
+            <span>Category</span>
+            <select id="itemCategoryInput"></select>
+          </label>
+          <label>
+            <span>Planned</span>
+            <input id="itemPlannedInput" type="number" min="0" step="1" value="0">
+          </label>
+          <label>
+            <span>Owner</span>
+            <input id="itemOwnerInput" type="text" placeholder="Family">
+          </label>
+          <button class="solid-button" type="submit">
+            <i data-lucide="plus"></i>
+            <span>Add Line</span>
+          </button>
+        </form>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>In</th>
+                <th>Item</th>
+                <th>Category</th>
+                <th>Planned</th>
+                <th>Actual</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Owner</th>
+                <th>Notes</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="budgetRows"></tbody>
+          </table>
+          <div class="empty-state" id="emptyState">No matching budget lines.</div>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>
