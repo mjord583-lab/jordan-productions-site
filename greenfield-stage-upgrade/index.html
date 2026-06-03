@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Albert M. Greenfield School Stage Upgrade Proposal | Jordan Productions</title>
+  <meta name="description" content="Jordan Productions stage lighting and stage facelift proposal for Albert M. Greenfield School.">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --surface-2: #18181f;
+      --border: #333345;
+      --text: #e8e8ec;
+      --muted: #9494a8;
+      --cyan: #00c2d1;
+      --cyan-hover: #00a8b5;
+      --amber: #e8a020;
+      --paper: #f5f5f7;
+      --ink: #1a1a24;
+      --paper-muted: #6a6a7a;
+      --paper-border: #d8d8dc;
+      --font-display: "Cabinet Grotesk", "Inter", system-ui, sans-serif;
+      --font-body: "Satoshi", "Inter", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-body);
+      color: var(--text);
+      background:
+        radial-gradient(circle at 14% 9%, rgba(0, 194, 209, 0.14), transparent 33rem),
+        linear-gradient(180deg, #0a0a0f 0%, #101018 43%, #f5f5f7 43%, #f5f5f7 100%);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; }
+
+    .topbar {
+      border-bottom: 4px solid var(--cyan);
+      background: rgba(10, 10, 15, 0.9);
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      min-height: 188px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 30px 0;
+    }
+
+    .brand {
+      width: 248px;
+      min-width: 180px;
+    }
+
+    .eyebrow {
+      color: #b9b9c2;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    .eyebrow strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: clamp(24px, 4vw, 34px);
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    main { padding: 38px 0 58px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) 390px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .panel {
+      background: #fff;
+      color: var(--ink);
+      border: 1px solid var(--paper-border);
+      border-radius: 18px;
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+    }
+
+    .hero-panel { padding: 34px; }
+
+    h1 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(38px, 6vw, 66px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .intro {
+      margin: 18px 0 0;
+      max-width: 700px;
+      color: var(--paper-muted);
+      font-size: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .card {
+      min-height: 118px;
+      padding: 20px;
+      border: 1px solid var(--paper-border);
+      border-radius: 14px;
+      background: #f7f7fa;
+    }
+
+    .card.dark {
+      background: var(--bg);
+      color: #fff;
+      border-color: var(--bg);
+    }
+
+    .label {
+      color: var(--paper-muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .card.dark .label { color: #a9a9b2; }
+
+    .amount {
+      margin-top: 12px;
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1;
+      font-weight: 500;
+    }
+
+    .section {
+      padding: 28px 34px;
+      border-top: 1px solid var(--paper-border);
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-family: var(--font-display);
+      font-size: 28px;
+      line-height: 1.1;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+
+    th {
+      padding: 11px 0;
+      color: var(--paper-muted);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: left;
+      border-bottom: 1px solid var(--paper-border);
+    }
+
+    td {
+      padding: 13px 0;
+      border-bottom: 1px solid #e9e9ee;
+      vertical-align: top;
+    }
+
+    .right { text-align: right; white-space: nowrap; }
+
+    .total-row td {
+      border-bottom: 0;
+      border-top: 2px solid var(--ink);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 15px 16px;
+      border-left: 3px solid var(--cyan);
+      background: #f7f7fa;
+      color: var(--paper-muted);
+      font-size: 14px;
+    }
+
+    .side {
+      position: sticky;
+      top: 24px;
+      padding: 28px;
+    }
+
+    .side .amount { font-size: 56px; }
+
+    .side p {
+      color: var(--paper-muted);
+      margin: 14px 0 0;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 54px;
+      margin-top: 24px;
+      border-radius: 999px;
+      background: var(--cyan);
+      color: var(--bg);
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+
+    .button:hover {
+      background: var(--cyan-hover);
+      transform: translateY(-1px);
+    }
+
+    .secondary {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--paper-border);
+      margin-top: 12px;
+    }
+
+    .secondary:hover { background: #f0f0f4; }
+
+    .fine-print {
+      margin-top: 18px;
+      color: var(--paper-muted);
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 28px 0 44px;
+      color: #777784;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      body {
+        background: linear-gradient(180deg, #0a0a0f 0%, #101018 30%, #f5f5f7 30%, #f5f5f7 100%);
+      }
+
+      header,
+      .grid { grid-template-columns: 1fr; }
+
+      header { display: grid; }
+      .eyebrow { text-align: left; }
+      .side { position: static; }
+    }
+
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 24px, 1120px); }
+      .cards { grid-template-columns: 1fr; }
+      .hero-panel, .section, .side { padding: 22px; }
+      table { font-size: 14px; }
+      .right { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <header>
+        <img class="brand" src="./brand-assets/jp-full-on-dark.svg" alt="Jordan Productions">
+        <div class="eyebrow">
+          <strong>Stage Lighting & Facelift Proposal</strong>
+          Albert M. Greenfield School · June 2026
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <div class="grid">
+      <article class="panel">
+        <section class="hero-panel">
+          <h1>Stage Lighting Upgrade & Facelift</h1>
+          <p class="intro">Jordan Productions will coordinate a focused stage refresh for Albert M. Greenfield School, combining lighting upgrades, stage resurfacing, front-of-stage finish work, panel treatment, steps, and related installation oversight.</p>
+
+          <div class="cards" aria-label="Project summary">
+            <div class="card">
+              <div class="label">Stage Facelift</div>
+              <div class="amount">$14,563</div>
+            </div>
+            <div class="card">
+              <div class="label">Lighting Upgrade</div>
+              <div class="amount">$16,313</div>
+            </div>
+            <div class="card dark">
+              <div class="label">Project Total</div>
+              <div class="amount">$30,875</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Scope Summary</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th class="right">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Stage resurfacing and finish package</td><td class="right">$4,312.50</td></tr>
+              <tr><td>Stage front hardboard treatment</td><td class="right">$1,812.50</td></tr>
+              <tr><td>Stage front acoustic panel treatment</td><td class="right">$5,437.50</td></tr>
+              <tr><td>Stage front/top patch panel finish work</td><td class="right">$1,062.50</td></tr>
+              <tr><td>Custom metal-framed stage steps and repair work</td><td class="right">$1,937.50</td></tr>
+              <tr><td>LED Leko fixture package</td><td class="right">$2,875.00</td></tr>
+              <tr><td>Wide lens swap for stage Leko fixtures</td><td class="right">$3,125.00</td></tr>
+              <tr><td>LED wash mover package</td><td class="right">$7,125.00</td></tr>
+              <tr><td>Over-stage pipe install</td><td class="right">$812.50</td></tr>
+              <tr><td>Downlight install package</td><td class="right">$2,375.00</td></tr>
+              <tr class="total-row"><td>Total</td><td class="right">$30,875.00</td></tr>
+            </tbody>
+          </table>
+
+          <div class="note">
+            Pricing is based on the current vendor scope and includes Jordan Productions project coordination, administration, and quality review.
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Project Notes</h2>
+          <table>
+            <tbody>
+              <tr>
+                <td>Portions of the work may be performed by a qualified vendor or subcontracted installation partner coordinated through Jordan Productions.</td>
+              </tr>
+              <tr>
+                <td>Equipment, materials, or installation methods may be substituted with equal or better alternatives based on availability and site conditions. If a substitution increases cost, the client will be notified and billed accordingly.</td>
+              </tr>
+              <tr>
+                <td>Licensed electrical work, permits, lift or scaffolding rental, structural engineering, district approvals, and out-of-scope repairs are not included unless separately approved.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </article>
+
+      <aside class="panel side" aria-label="Proposal actions">
+        <div class="label">Project Investment</div>
+        <div class="amount">$30,875.00</div>
+        <p>Review the proposal and use the buttons below to download the PDF or confirm next steps with Jordan Productions.</p>
+
+        <a class="button" href="./greenfield_stage_lighting_proposal.pdf">View PDF Proposal</a>
+        <a class="button secondary" href="mailto:mj@jordanproductions.org?subject=Albert%20M.%20Greenfield%20School%20Stage%20Upgrade%20Proposal">Discuss Next Steps</a>
+
+        <div class="fine-print">
+          Proposal is confidential and prepared for Albert M. Greenfield School. Final schedule depends on client approval, vendor availability, material availability, and school access.
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="wrap">
+    Jordan Productions · Confidential · mj@jordanproductions.org
+  </footer>
+</body>
+</html>
