@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>NCC AV Contribution Value Overview | Jordan Productions</title>
+  <meta name="description" content="Package-level AV contribution value overview prepared by Jordan Productions.">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --surface-2: #18181f;
+      --border: #333345;
+      --text: #e8e8ec;
+      --muted: #9494a8;
+      --cyan: #00c2d1;
+      --cyan-hover: #00a8b5;
+      --amber: #e8a020;
+      --paper: #f5f5f7;
+      --ink: #1a1a24;
+      --paper-muted: #6a6a7a;
+      --paper-border: #d8d8dc;
+      --font-display: "Cabinet Grotesk", "Inter", system-ui, sans-serif;
+      --font-body: "Satoshi", "Inter", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-body);
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(0, 194, 209, 0.18), transparent 30rem),
+        linear-gradient(180deg, #0a0a0f 0%, #101018 42%, #f5f5f7 42%, #f5f5f7 100%);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; }
+
+    .topbar {
+      border-top: 6px solid var(--cyan);
+      background: rgba(10, 10, 15, 0.96);
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      min-height: 196px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 34px 0;
+    }
+
+    .brand {
+      width: 258px;
+      min-width: 180px;
+    }
+
+    .eyebrow {
+      color: #b9b9c2;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    .eyebrow strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: clamp(23px, 4vw, 34px);
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    main { padding: 42px 0 64px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 350px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .panel {
+      background: #fff;
+      color: var(--ink);
+      border: 1px solid var(--paper-border);
+      border-radius: 18px;
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.13);
+      overflow: hidden;
+    }
+
+    .hero-panel { padding: 36px; }
+
+    h1 {
+      margin: 0;
+      font-family: var(--font-display);
+      max-width: 760px;
+      font-size: clamp(38px, 5.4vw, 62px);
+      line-height: 1.03;
+      letter-spacing: 0;
+    }
+
+    .intro {
+      margin: 24px 0 0;
+      max-width: 720px;
+      color: var(--paper-muted);
+      font-size: 18px;
+    }
+
+    .label {
+      color: var(--paper-muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: minmax(280px, 330px);
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .card {
+      min-height: 122px;
+      padding: 22px 24px;
+      border: 1px solid var(--paper-border);
+      border-radius: 14px;
+      background: #f7f7fa;
+    }
+
+    .card.dark {
+      background: var(--bg);
+      color: #fff;
+      border-color: var(--bg);
+    }
+
+    .card.dark .label { color: #a9a9b2; }
+
+    .amount {
+      margin-top: 10px;
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    .card p,
+    .section p,
+    .side p {
+      color: var(--paper-muted);
+      margin: 10px 0 0;
+    }
+
+    .section {
+      padding: 30px 36px;
+      border-top: 1px solid var(--paper-border);
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-family: var(--font-display);
+      font-size: 30px;
+      line-height: 1.08;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-family: var(--font-display);
+      font-size: 22px;
+      line-height: 1.15;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+
+    th {
+      padding: 11px 0;
+      color: var(--paper-muted);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: left;
+      border-bottom: 1px solid var(--paper-border);
+    }
+
+    td {
+      padding: 15px 0;
+      border-bottom: 1px solid #e7e7ec;
+      vertical-align: top;
+    }
+
+    .right { text-align: right; white-space: nowrap; }
+
+    .total-row td {
+      border-bottom: 0;
+      border-top: 2px solid var(--ink);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .note {
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-left: 3px solid var(--cyan);
+      background: #f7f7fa;
+      color: var(--paper-muted);
+      font-size: 14px;
+    }
+
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .package {
+      border: 1px solid var(--paper-border);
+      border-radius: 14px;
+      background: #f7f7fa;
+      padding: 22px;
+    }
+
+    .package:nth-child(2) {
+      border-top: 4px solid var(--amber);
+    }
+
+    .package:first-child {
+      border-top: 4px solid var(--cyan);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 16px 0 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 12px;
+      border: 1px solid var(--paper-border);
+      border-radius: 999px;
+      background: #fff;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    ul {
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      position: relative;
+      padding-left: 18px;
+      margin: 10px 0;
+      color: var(--paper-muted);
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      top: 0.72em;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--cyan);
+    }
+
+    .side {
+      position: sticky;
+      top: 24px;
+      padding: 28px;
+    }
+
+    .side .amount { font-size: 54px; }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 54px;
+      margin-top: 24px;
+      border-radius: 999px;
+      background: var(--cyan);
+      color: var(--bg);
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+
+    .button:hover {
+      background: var(--cyan-hover);
+      transform: translateY(-1px);
+    }
+
+    .fine-print {
+      margin-top: 18px;
+      color: var(--paper-muted);
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 24px 0 40px;
+      color: #6d6d7b;
+      font-size: 13px;
+    }
+
+    @media (max-width: 860px) {
+      header,
+      .grid,
+      .cards,
+      .package-grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .eyebrow { text-align: left; }
+      .side { position: static; }
+      .hero-panel,
+      .section { padding: 26px; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .topbar { background: #0a0a0f; }
+      .button { display: none; }
+      .grid { display: block; }
+      .side { margin-top: 24px; }
+      .panel { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <header>
+        <img class="brand" src="brand-assets/jp-full-on-dark.svg" alt="Jordan Productions">
+        <div class="eyebrow">
+          <strong>AV Contribution Value Overview</strong>
+          New Covenant Church of Philadelphia<br>
+          Prepared August 19, 2026
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <div class="grid">
+      <article class="panel">
+        <section class="hero-panel">
+          <div class="label">Confidential discussion document</div>
+          <h1>Sanctuary Media Enhancement Contribution</h1>
+          <p class="intro">Jordan Productions is presenting a package-level AV contribution for New Covenant Church of Philadelphia to consider as part of a JFLC rent-credit arrangement. The contribution is intended to strengthen the sanctuary's in-person and online presentation while creating added value for future rentals and special events.</p>
+          <div class="cards">
+            <div class="card dark">
+              <div class="label">Stated contribution value</div>
+              <div class="amount">$96,353</div>
+              <p>Equipment, cases, one-time install labor.</p>
+            </div>
+          </div>
+          <div class="note">
+            Prepared for review and agreement purposes. Values are presented at the package level for consideration toward the JFLC rent-credit arrangement.
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Offer at a Glance</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Summary</th>
+                <th class="right">Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Package 1</strong></td>
+                <td>Existing onsite LED wall system serving the sanctuary's current presentation and ministry use.</td>
+                <td class="right"><strong>$20,000</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Package 2</strong></td>
+                <td>Expanded LED wall, processing, rigging hardware, truss, cabling, and lighting for larger service and event layouts.</td>
+                <td class="right"><strong>$66,000</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Labor</strong></td>
+                <td>One-time installation labor, local delivery logistics, and storage/transport cases.</td>
+                <td class="right"><strong>$10,353</strong></td>
+              </tr>
+              <tr class="total-row">
+                <td colspan="2">Total stated contribution value</td>
+                <td class="right">$96,353</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="note">
+            The stated contribution value reflects retail/replacement value for the equipment packages, protective cases, delivery logistics, and one-time installation labor included with this sanctuary media enhancement. The total is provided for New Covenant Church's review as part of the JFLC rent-credit arrangement.
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Suggested Package Use</h2>
+          <div class="package-grid">
+            <div class="package">
+              <div class="label">Package 1</div>
+              <h3>Existing Onsite LED Wall System</h3>
+              <div class="amount">$20,000</div>
+              <p>Package 1 represents the existing onsite LED wall system currently serving the sanctuary environment. The stated value reflects the equipment contribution only and excludes any historical rental or usage charge.</p>
+              <div class="pill-row">
+                <span class="pill">Center-stage backdrop</span>
+                <span class="pill">Lyrics and scripture</span>
+                <span class="pill">Sermon visuals</span>
+                <span class="pill">Announcements loop</span>
+              </div>
+            </div>
+            <div class="package">
+              <div class="label">Package 2</div>
+              <h3>Expanded LED Wall, Rigging and Lighting</h3>
+              <div class="amount">$66,000</div>
+              <p>Package 2 expands the sanctuary's visual capabilities with a larger modular LED system, stage lighting, rigging hardware, truss, cabling/data infrastructure, and video processing.</p>
+              <div class="pill-row">
+                <span class="pill">Wider main wall</span>
+                <span class="pill">Split side displays</span>
+                <span class="pill">Scenic backdrop</span>
+                <span class="pill">Event lighting looks</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>How the Church Can Realize the Value</h2>
+          <ul>
+            <li>Enhance weekly services with lyrics, scripture, sermon visuals, announcements, themed graphics, guest speakers, and seasonal services.</li>
+            <li>Improve livestream and recorded content with a cleaner stage picture and more consistent visual presentation.</li>
+            <li>Position the sanctuary as an event-ready room with optional premium presentation capabilities for concerts, conferences, celebrations, and recorded programs.</li>
+            <li>Use clear upgrade language such as Enhanced Sanctuary Visuals, Premium Event Presentation, or Camera-Friendly Service Package.</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2>Items to Document Separately</h2>
+          <ul>
+            <li>Approved rent credit amount and effective date.</li>
+            <li>Ownership, access, storage, maintenance, and insurance responsibilities.</li>
+            <li>Any separately scheduled operating labor for weekly services or outside events.</li>
+            <li>Condition, acceptance, and post-install repair responsibilities.</li>
+          </ul>
+        </section>
+      </article>
+
+      <aside class="panel side">
+        <div class="label">Total stated contribution value</div>
+        <div class="amount">$96,353</div>
+        <p>Presented as a package-level contribution value overview for review and rent-credit consideration.</p>
+        <a class="button" href="ncc_av_contribution_value_overview.pdf">Download PDF</a>
+        <p class="fine-print">Prepared by Jordan Productions for New Covenant Church of Philadelphia and review of a JFLC rent-credit arrangement. Hidden page draft: noindex, nofollow, and not linked from public navigation.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="wrap">
+    Jordan Productions | Confidential discussion document | jordanproductions.org
+  </footer>
+</body>
+</html>
